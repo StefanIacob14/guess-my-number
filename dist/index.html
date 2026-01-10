@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Guess the Number!</title>
+
+    <link rel="stylesheet" crossorigin href="/assets/index-DnLv0ls2.css">
+  </head>
+
+  <body class="font-display bg-[#222] text-[#eee]">
+    <!-- HEADER -->
+    <header class="relative h-[35vh] border-b-[7px] border-b-[#eee]">
+      <h1
+        class="text-[5rem] tracking-widest text-center absolute w-full top-[52%] left-[50%] -translate-1/2 pointer-events-none"
+      >
+        Guess My Number!
+      </h1>
+
+      <p
+        class="between text-[2.4rem] tracking-wider absolute top-8 right-8 pointer-events-none"
+      >
+        (Between 1 and 20)
+      </p>
+
+      <button
+        class="btn again absolute top-8 left-8 border-none bg-[#eee] text-[#222] text-[2.5rem] tracking-widest font-display px-10 py-3 cursor-pointer hover:bg-[#ccc]"
+      >
+        Again!
+      </button>
+
+      <div
+        class="number flex items-center justify-center bg-[#eee] text-[#333] text-[10rem] h-35 w-50 absolute bottom-0 left-[50%] -translate-x-1/2 translate-y-1/2 pointer-events-none"
+      >
+        <p>?</p>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="h-[65vh] text-[#eee] flex items-center justify-evenly">
+      <!-- LEFT SECTION -->
+      <section class="left w-208">
+        <div class="flex flex-col items-center">
+          <input
+            type="number"
+            class="guess border-4 border-[#eee] font-display text-inherit text-[5.5rem] tracking-wide p-4 h-35 w-70 text-center block mb-8"
+          />
+
+          <button
+            class="btn check border-none bg-[#eee] text-[#222] text-[2.5rem] tracking-wider font-display px-10 py-3 cursor-pointer hover:bg-[#ccc]"
+          >
+            Check!
+          </button>
+        </div>
+      </section>
+
+      <!-- RIGHT SECTION -->
+      <section class="right w-208 text-[2.2rem] pointer-events-none">
+        <div class="flex flex-col ml-30 tracking-widest">
+          <p class="message mb-18 h-12 text-[2.7rem]">Start guessing...</p>
+
+          <p class="label-score mb-4">
+            💯 Score: <span class="score">20</span>
+          </p>
+
+          <p class="label-highscore">
+            🥇 Highscore: <span class="highscore">0</span>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
