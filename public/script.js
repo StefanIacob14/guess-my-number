@@ -88,3 +88,17 @@ checkBtn.addEventListener(`click`, function () {
 
 // AGAIN Button
 againBtn.addEventListener(`click`, reloadPage);
+
+// "Enter" key for check the input
+document.addEventListener(`keydown`, function (event) {
+  if (event.key === `Enter`) {
+    checkBtn.click();
+  }
+});
+
+// "ESC" key for reload the page ("Again!" button)
+document.addEventListener(`keydown`, function (event) {
+  if (event.key === `Escape`) {
+    againBtn.click();
+  }
+});
