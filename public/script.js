@@ -1,43 +1,61 @@
 "use strict";
 
-// Functions & Variables
-// Functions
-const displayMessage = function (message) {
-  document.querySelector(`.message`).textContent = message;
-};
-
-const guessField = function (value) {
-  document.querySelector(`.guess`).value = value;
-};
-
-const scoreNumber = function (score) {
-  document.querySelector(`.score`).textContent = score;
-};
-
-const highscoreNumber = function (highscore) {
-  document.querySelector(`.highscore`).textContent = highscore;
-};
-
+// Variables & Functions
 // Variables
+const againBtn = document.querySelector(`.again`);
+const checkBtn = document.querySelector(`.check`);
+const guessField = document.querySelector(`.guess`);
+const scoreMsg = document.querySelector(`.score`);
+const highscoreMsg = document.querySelector(`.highscore`);
+const messageElem = document.querySelector(`.message`);
+const numberElem = document.querySelector(`.number`);
+
 let score = 20;
 
 let highscore = Number(localStorage.getItem(`highscore`));
-document.querySelector(`.highscore`).textContent = highscore;
+highscoreMsg.textContent = highscore;
+
+// Functions
+const displayMessage = function (message) {
+  messageElem.textContent = message;
+};
+
+const guessDisplay = function (value) {
+  guessField.value = value;
+};
+
+const scoreNumber = function (score) {
+  scoreMsg.textContent = score;
+};
+
+const highscoreNumber = function (highscore) {
+  highscoreMsg.textContent = highscore;
+};
+
+const reloadPage = function () {
+  window.location.reload();
+  guessDisplay("");
+};
+
+const noInput = function () {
+  displayMessage(`⛔ No Number!`);
+  guessDisplay("");
+};
 
 // Random Secret Number
 const secretNumber = Math.trunc(Math.random() * 20 + 1);
 
 // CHECK Button (+scenarios)
-document.querySelector(`.check`).addEventListener(`click`, function () {
-  const guess = Number(document.querySelector(`.guess`).value);
+checkBtn.addEventListener(`click`, function () {
+  const guess = Number(guessField.value);
 
   // Guess is CORRECT
   if (guess === secretNumber) {
-    document.querySelector(`.number`).textContent = secretNumber;
     document.querySelector(`body`).classList.add(`bg-green-500`);
-    document.querySelector(`.number`).classList.add(`w-[16rem]`);
-    document.querySelector(`.number`).classList.add(`animate-bounce`);
     displayMessage(`🎉 Correct Number!`);
+    numberElem.textContent = secretNumber;
+    numberElem.classList.add(`w-[16rem]`);
+    numberElem.classList.add(`animate-bounce`);
 
     // HIGHSCORE
     if (score > highscore) {
@@ -55,7 +73,7 @@ document.querySelector(`.check`).addEventListener(`click`, function () {
       scoreNumber(score);
     } else {
       displayMessage(`💥 You lost the game!`);
-      guessField("");
+      guessDisplay("");
       scoreNumber(0);
       localStorage.removeItem(`highscore`);
       highscore = 0;
@@ -64,13 +82,9 @@ document.querySelector(`.check`).addEventListener(`click`, function () {
   }
   // No input
   if (!guess) {
-    displayMessage(`⛔ No Number!`);
-    guessField("");
+    noInput();
   }
 });
 
 // AGAIN Button
-document.querySelector(`.again`).addEventListener(`click`, function () {
-  window.location.reload();
-  guessField("");
-});
+againBtn.addEventListener(`click`, reloadPage);
