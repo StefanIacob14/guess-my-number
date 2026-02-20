@@ -6,7 +6,7 @@
 
 ## 🔗 Links
 
-- **🔴 Live Demo:** [guess-my-number-project-teal.vercel.app]
+- **🔴 Live Demo:** [https://guess-my-number-project-teal.vercel.app]
 - **📂 Repository:** [https://github.com/StefanIacob14/guess-my-number]
 
 # 🧐 Overview
